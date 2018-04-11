@@ -8,8 +8,8 @@ public class InsertionSortTest extends BasicSortTest {
 
     private Sort solution1 = new InsertionSort1();
     private Sort solution2 = new InsertionSort2();
-    private Sort solution3 = new InsertionSort2();
-    private Sort solution4 = new InsertionSort2();
+    private Sort solution3 = new InsertionSort3();
+    private Sort solution4 = new InsertionSort4();
 
     @Test
     void test1() {
@@ -33,5 +33,18 @@ public class InsertionSortTest extends BasicSortTest {
     void test4() {
         setSolution(solution4);
         testSort();
+    }
+
+    @Test
+    void typicalTest() {
+        setSolution(solution2);
+        int[] array = {45, -27, -36, 31, 37, -7, -11, -32, -32, 35};
+        testTypicalArraySort(array);
+    }
+
+    @Test
+    void repeatTest() {
+        setSolution(solution2);
+        repeatSortTest(100);
     }
 }

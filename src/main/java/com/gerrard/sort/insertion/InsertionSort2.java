@@ -19,7 +19,7 @@ public class InsertionSort2 implements Sort {
             int startIndex = i - 1;
             if (cur < checkNumber) {
                 startIndex = checkIndex;
-                for (int j = i - 1; j > startIndex - 1; j--) {
+                for (int j = i - 1; j > startIndex; j--) {
                     array[j + 1] = array[j];
                 }
             }
@@ -36,6 +36,8 @@ public class InsertionSort2 implements Sort {
                 }
             }
             if (!flag) {
+                checkIndex = 0;
+                checkNumber = cur;
                 array[0] = cur;
             }
         }

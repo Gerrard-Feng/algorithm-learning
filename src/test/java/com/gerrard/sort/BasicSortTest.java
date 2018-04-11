@@ -22,17 +22,31 @@ public abstract class BasicSortTest {
     }
 
     protected void testSort() {
-        if (solution == null) {
-            Assertions.fail("A sort solution must be set first.");
-        }
-        int[] array1 = ArrayTestHelper.createRandomArray(10, -50, 50);
-        int[] array2 = ArrayTestHelper.copyArray(array1);
-        Arrays.sort(array1);
-        solution.sort(array2);
-        Assertions.assertArrayEquals(array1, array2);
+        int[] array = ArrayTestHelper.createRandomArray(10, -50, 50);
+        testTypicalArraySort(array);
+    }
+
+    protected void testTypicalArraySort(int[] array) {
+        assertSolutionSet();
+        int[] checkArray = ArrayTestHelper.copyArray(array);
+        Arrays.sort(checkArray);
+        solution.sort(array);
+        Assertions.assertArrayEquals(array, checkArray);
     }
 
     protected void setSolution(Sort solution) {
         this.solution = solution;
+    }
+
+    protected void repeatSortTest(int repeatTimes) {
+        for (int i = 0; i < repeatTimes; ++i) {
+            testSort();
+        }
+    }
+
+    private void assertSolutionSet() {
+        if (solution == null) {
+            Assertions.fail("A sort solution must be set first.");
+        }
     }
 }
