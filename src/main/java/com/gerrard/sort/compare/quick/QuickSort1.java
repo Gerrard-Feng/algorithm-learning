@@ -1,8 +1,8 @@
-package com.gerrard.sort.quick;
+package com.gerrard.sort.compare.quick;
 
 import com.gerrard.util.ArrayHelper;
 
-public final class QuickSort1 extends BasicQuickSort {
+public class QuickSort1 extends BasicQuickSort {
 
     @Override
     protected int partition(int[] array, int left, int right) {

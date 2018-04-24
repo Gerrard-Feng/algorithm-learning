@@ -1,4 +1,4 @@
-package com.gerrard.sort.insertion;
+package com.gerrard.sort.compare.insertion;
 
 import com.gerrard.sort.BasicSortTest;
 import com.gerrard.sort.Sort;
@@ -45,6 +45,6 @@ public class InsertionSortTest extends BasicSortTest {
     @Test
     void repeatTest() {
         setSolution(solution2);
-        repeatSortTest(100);
+        repeatSortTest(10000);
     }
 }

@@ -1,6 +1,7 @@
-package com.gerrard.sort.insertion;
+package com.gerrard.sort.compare.insertion;
 
 import com.gerrard.sort.Sort;
+import com.gerrard.util.ArrayHelper;
 
 /**
  * A more efficient solution than InsertionSort3, without array reconstruction.
@@ -14,9 +15,7 @@ public class InsertionSort4 implements Sort {
             int cur = array[i];
             int low = 0, high = i - 1;
             int index = binarySearch(array, low, high, cur);
-            for (int j = i - 1; j > index - 1; j--) {
-                array[j + 1] = array[j];
-            }
+            ArrayHelper.moveBySteps(array, index, i - 1, true, 1);
             array[index] = cur;
         }
     }

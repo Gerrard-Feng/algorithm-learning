@@ -1,6 +1,7 @@
-package com.gerrard.sort.insertion;
+package com.gerrard.sort.compare.insertion;
 
 import com.gerrard.sort.Sort;
+import com.gerrard.util.ArrayHelper;
 
 /**
  * A optimization schema for basic insertion sort.
@@ -19,9 +20,7 @@ public class InsertionSort2 implements Sort {
             int startIndex = i - 1;
             if (cur < checkNumber) {
                 startIndex = checkIndex;
-                for (int j = i - 1; j > startIndex; j--) {
-                    array[j + 1] = array[j];
-                }
+                ArrayHelper.moveForwardBySteps(array, startIndex + 1, i - 1, 1);
             }
             boolean flag = false;
             for (int j = startIndex; j > -1; j--) {

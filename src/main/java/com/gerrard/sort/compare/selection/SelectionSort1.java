@@ -1,4 +1,4 @@
-package com.gerrard.sort.selection;
+package com.gerrard.sort.compare.selection;
 
 import com.gerrard.sort.Sort;
 import com.gerrard.util.ArrayHelper;

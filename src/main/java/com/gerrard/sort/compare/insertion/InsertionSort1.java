@@ -1,4 +1,4 @@
-package com.gerrard.sort.insertion;
+package com.gerrard.sort.compare.insertion;
 
 import com.gerrard.sort.Sort;
 

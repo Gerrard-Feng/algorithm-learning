@@ -1,4 +1,4 @@
-package com.gerrard.sort.shell;
+package com.gerrard.sort.compare.shell;
 
 import com.gerrard.sort.Sort;
 

@@ -1,6 +1,7 @@
-package com.gerrard.sort.insertion;
+package com.gerrard.sort.compare.insertion;
 
 import com.gerrard.sort.Sort;
+import com.gerrard.util.ArrayHelper;
 
 import java.util.Arrays;
 
@@ -22,9 +23,7 @@ public class InsertionSort3 implements Sort {
             if (index < 0) {
                 index = -(index + 1);
             }
-            for (int j = i - 1; j > index - 1; j--) {
-                array[j + 1] = array[j];
-            }
+            ArrayHelper.moveBySteps(array, index, i - 1, true, 1);
             array[index] = cur;
         }
     }

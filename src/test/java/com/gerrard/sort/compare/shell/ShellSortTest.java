@@ -1,12 +1,12 @@
-package com.gerrard.sort.heap;
+package com.gerrard.sort.compare.shell;
 
 import com.gerrard.sort.BasicSortTest;
 import com.gerrard.sort.Sort;
 import org.junit.jupiter.api.Test;
 
-public final class HeapSortTest extends BasicSortTest {
+public class ShellSortTest extends BasicSortTest {
 
-    private Sort solution1 = new HeapSort1();
+    private Sort solution1 = new ShellSort1();
 
     @Test
     void test1() {

@@ -1,4 +1,4 @@
-package com.gerrard.sort.bubble;
+package com.gerrard.sort.compare.bubble;
 
 import com.gerrard.util.ArrayHelper;
 import com.gerrard.sort.Sort;
