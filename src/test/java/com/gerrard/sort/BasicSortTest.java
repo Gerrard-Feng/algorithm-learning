@@ -11,6 +11,10 @@ public abstract class BasicSortTest {
 
     private Sort solution;
 
+    private static final int DEFAULT_ARRAY_LENGTH = 50;
+    private static final int DEFAULT_ELEMENT_MIN = 0;
+    private static final int DEFAULT_ELEMENT_MAX = 100;
+
     @BeforeEach
     void assertSolutionNull() {
         Assertions.assertTrue(solution == null);
@@ -22,7 +26,11 @@ public abstract class BasicSortTest {
     }
 
     protected void testSort() {
-        int[] array = ArrayTestHelper.createRandomArray(10, -50, 50);
+        testSort(DEFAULT_ARRAY_LENGTH, DEFAULT_ELEMENT_MIN, DEFAULT_ELEMENT_MAX);
+    }
+
+    protected void testSort(int arrayLength, int minElement, int maxElement) {
+        int[] array = ArrayTestHelper.createRandomArray(arrayLength, minElement, maxElement);
         testTypicalArraySort(array);
     }
 
