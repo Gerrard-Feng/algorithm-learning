@@ -6,11 +6,24 @@ import org.junit.jupiter.api.Test;
 
 public class ShellSortTest extends BasicSortTest {
 
-    private Sort solution1 = new ShellSort1();
+    private Sort solution = new ShellSort();
 
     @Test
-    void test1() {
-        setSolution(solution1);
+    void testShellSort() {
+        setSolution(solution);
         testSort();
+    }
+
+    @Test
+    void repeatTestShellSort() {
+        setSolution(solution);
+        repeatSortTest(1000);
+    }
+
+    @Test
+    void typicalTest() {
+        setSolution(solution);
+        int[] testArray = {73, 72, 93, 44, 15, 70, 67, 58, 64, 69};
+        testTypicalArraySort(testArray);
     }
 }
