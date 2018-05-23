@@ -7,24 +7,31 @@ import org.junit.jupiter.api.Test;
 public final class BubbleSortTest extends BasicSortTest {
 
     private Sort solution1 = new BubbleSort1();
-    private Sort solution2 = new BubbleSort1();
-    private Sort solution3 = new BubbleSort1();
+    private Sort solution2 = new BubbleSort2();
+    private Sort solution3 = new BubbleSort3();
+    private Sort solution4 = new BubbleSortRecursion();
 
     @Test
-    void test1() {
+    void testBubbleSort1() {
         setSolution(solution1);
         testSort();
     }
 
     @Test
-    void test2() {
+    void testBubbleSort2() {
         setSolution(solution2);
         testSort();
     }
 
     @Test
-    void test3() {
+    void testBubbleSort3() {
         setSolution(solution3);
+        testSort();
+    }
+
+    @Test
+    void testBubbleSortRecursion() {
+        setSolution(solution4);
         testSort();
     }
 }
