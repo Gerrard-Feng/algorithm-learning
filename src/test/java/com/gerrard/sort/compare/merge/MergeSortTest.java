@@ -6,25 +6,40 @@ import org.junit.jupiter.api.Test;
 
 public final class MergeSortTest extends BasicSortTest {
 
-    private Sort solution1 = new MergeSort1();
-    private Sort solution2 = new MergeSort2();
-    private MixedMergeSort solution3 = new MixedMergeSort();
+    private BasicMergeSort solution1 = new MergeSort();
+    private BasicMergeSort solution2 = new MergeSortLoop();
+    private Sort solution3 = new OptimizedMergeSort();
 
     @Test
-    void testMergeSort1() {
+    void testMergeSortWithSpaceCost() {
+        solution1.setMerge(new SpaceCostMerge());
         setSolution(solution1);
         testSort();
     }
 
     @Test
-    void testMergeSort2() {
+    void testMergeSortWithTimeCost() {
+        solution1.setMerge(new TimeCostMerge());
+        setSolution(solution1);
+        testSort();
+    }
+
+    @Test
+    void testMergeSortLoopWithSpaceCost() {
+        solution2.setMerge(new SpaceCostMerge());
         setSolution(solution2);
         testSort();
     }
 
     @Test
-    void testMixedMergeSort() {
-        solution3.setThreshold(64);
+    void testMergeSortLoopWithTimeCost() {
+        solution2.setMerge(new TimeCostMerge());
+        setSolution(solution2);
+        testSort();
+    }
+
+    @Test
+    void testOptimizedMergeSort() {
         setSolution(solution3);
         testSort();
     }

@@ -1,14 +1,12 @@
 package com.gerrard.sort.compare.merge;
 
-/**
- * Another Merge-Sort solution, with only O(1) space cost.
- * It use Insertion-Sort solution to merge two ordered array.
- * In this solution, the complexity will not be O(n*lgn), but increase to O(n^2).
- */
-public final class MergeSort2 extends BasicMergeSort {
+import com.gerrard.util.ArrayHelper;
+
+public class TimeCostMerge implements Merge {
 
     @Override
-    protected void merge(int[] array, int left, int mid, int right) {
+    public void merge(int[] array, int left, int right) {
+        int mid = ArrayHelper.getMiddle(left, right);
         for (int i = mid + 1; i <= right; ++i) {
             int cur = array[i];
             boolean flag = false;

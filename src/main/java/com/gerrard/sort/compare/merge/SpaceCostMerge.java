@@ -1,15 +1,13 @@
 package com.gerrard.sort.compare.merge;
 
-/**
- * This is a common Merge-Sort solution.
- * Every time merge two ordered array, a new space for array will be cost.
- * So the O(n*lgn) complexity is based on O(n) space cost.
- */
-public final class MergeSort1 extends BasicMergeSort {
+import com.gerrard.util.ArrayHelper;
+
+public final class SpaceCostMerge implements Merge {
 
     @Override
-    protected void merge(int[] array, int left, int mid, int right) {
+    public void merge(int[] array, int left, int right) {
         int[] newArray = new int[right - left + 1];
+        int mid = ArrayHelper.getMiddle(left, right);
         int startIndex1 = left;
         int startIndex2 = mid + 1;
         for (int i = 0; i < newArray.length; ++i) {
