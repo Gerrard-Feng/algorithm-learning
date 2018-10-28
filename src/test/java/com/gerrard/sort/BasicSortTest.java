@@ -15,6 +15,12 @@ public abstract class BasicSortTest {
     private static final int DEFAULT_ELEMENT_MIN = 0;
     private static final int DEFAULT_ELEMENT_MAX = 100;
 
+    private boolean enablePrintSortArray = false;
+
+    protected void setEnablePrintSortArray(boolean enablePrintSortArray) {
+        this.enablePrintSortArray = enablePrintSortArray;
+    }
+
     @BeforeEach
     void assertSolutionNull() {
         Assertions.assertTrue(solution == null);
@@ -37,8 +43,18 @@ public abstract class BasicSortTest {
     protected void testTypicalArraySort(int[] array) {
         assertSolutionSet();
         int[] checkArray = ArrayTestHelper.copyArray(array);
+        if (enablePrintSortArray) {
+            System.out.println("Array before sort: ");
+            printArray(array);
+        }
         Arrays.sort(checkArray);
         solution.sort(array);
+        if (enablePrintSortArray) {
+            System.out.println("Expected array: ");
+            printArray(checkArray);
+            System.out.println("Actual array: ");
+            printArray(array);
+        }
         Assertions.assertArrayEquals(array, checkArray);
     }
 
@@ -52,9 +68,26 @@ public abstract class BasicSortTest {
         }
     }
 
+    protected void repeatSortTest(int repeatTimes, int arrayLength) {
+        for (int i = 0; i < repeatTimes; ++i) {
+            testSort(arrayLength, DEFAULT_ELEMENT_MIN, DEFAULT_ELEMENT_MAX);
+        }
+    }
+
     private void assertSolutionSet() {
         if (solution == null) {
             Assertions.fail("A sort solution must be set first.");
+        }
+    }
+
+    private void printArray(int[] array) {
+        for (int i = 0; i < array.length; ++i) {
+            System.out.print(array[i]);
+            if (i == array.length - 1) {
+                System.out.print("\n");
+            } else {
+                System.out.print(", ");
+            }
         }
     }
 }
